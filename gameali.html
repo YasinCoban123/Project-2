@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissors</title>
+  <style>
+    /* Add some style to the page */
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: purple;
+}
+
+button {
+  font-size: 1.5em;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.5em;
+  border: none;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkgray;
+}
+  </style>
+</head>
+<body>
+  <h1>Rock, Paper, Scissors</h1>
+  <p>Make your choice:</p>
+  <button onclick="play('rock')">Rock</button>
+  <button onclick="play('paper')">Paper</button>
+  <button onclick="play('scissors')">Scissors</button>
+  <p id="result"></p>
+  <script>
+    function play(playerChoice) {
+      // Generate the computer's choice
+      const choices = ['rock', 'paper', 'scissors'];
+      const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+
+      // Determine the winner
+      let result;
+      if (playerChoice === computerChoice) {
+        result = 'It\'s a tie!';
+      } else if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+      ) {
+        result = 'You win!';
+      } else {
+        result = 'You lose.';
+      }
+
+      // Display the result
+      document.getElementById('result').innerHTML = `You chose ${playerChoice}. The computer chose ${computerChoice}. ${result}`;
+    }
+  </script>
+</body>
+</html>
