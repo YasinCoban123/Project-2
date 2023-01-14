@@ -1,40 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Number Guessing Game</title>
-  <style>
-    /* Add some style to the page */
-  </style>
-</head>
-<body>
-  <h1>Number Guessing Game</h1>
-  <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
-  <form>
-    <label for="guess">Your guess:</label>
-    <input type="number" id="guess" min="1" max="100">
-    <button type="submit">Guess</button>
-  </form>
-  <p id="result"></p>
-  <script>
-    const form = document.querySelector('form');
-    const result = document.getElementById('result');
-    let target;
-
-    form.addEventListener('submit', event => {
-      event.preventDefault();  // prevent the form from submitting
-      const guess = document.getElementById('guess').value;
-      if (!target) {
-        // Generate the target number if it hasn't been generated yet
-        target = Math.floor(Math.random() * 100) + 1;
-      }
-      if (guess == target) {
-        result.textContent = 'You guessed the correct number!';
-      } else if (guess > target) {
-        result.textContent = 'Your guess is too high. Try again.';
-      } else {
-        result.textContent = 'Your guess is too low. Try again.';
-      }
-    });
-  </script>
-</body>
-</html>
+  <head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="gameyasin.css">
+  </head>
+  <body>
+    <h1>Quiz</h1>
+    <form id="quiz-form">
+      <div id="question1">
+        <h2>Question 1</h2>
+        <img src="image1.jpg" alt="Question 1 image">
+        <input type="radio" name="question1" value="answer1">Answer 1
+        <input type="radio" name="question1" value="answer2">Answer 2
+        <input type="radio" name="question1" value="answer3">Answer 3
+        <input type="radio" name="question1" value="answer4">Answer 4
+      </div>
+      <div id="question2">
+        <h2>Question 2</h2>
+        <img src="image2.jpg" alt="Question 2 image">
+        <input type="radio" name="question2" value="answer1">Answer 1
+        <input type="radio" name="question2" value="answer2">Answer 2
+        <input type="radio" name="question2" value="answer3">Answer 3
+        <input type="radio" name="question2" value="answer4">Answer 4
+      </div>
+      <input type="button" value="Submit" onclick="checkAnswers()">
+    </form>
+    <script src="gamemo.js"></script>
+    </body>
+    </html>

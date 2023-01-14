@@ -1,51 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="gamemo.css">
-  <title>My Homepage</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gamemo.css">
+    <script src="https://kit.fontawesome.com/3da1a747b2.js"></script>
+    <title>Steen Papier Schaar</title>
 </head>
 <body>
-  <header>
-    <h1>Welcome to my homepage</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus malesuada felis a justo fermentum, sed ultricies nisi elementum. Suspendisse potenti. Aliquam mollis diam et tortor vehicula, id ultricies dolor fermentum. Aenean efficitur tellus sit amet dictum porta. Nam finibus lacus id magna dictum, at facilisis lacus malesuada. Praesent eu neque a enim dignissim facilisis. Aliquam auctor mi quis mi ultricies, in porttitor dolor tristique. Nulla facilisi. Fusce egestas elementum tellus, nec aliquet nisi aliquam quis. Praesent euismod lacus in nisi rutrum, ac maximus nibh elementum. Praesent hendrerit eros velit, eu tempus nulla pretium at. Maecenas vel ultricies velit. Sed vel velit eget quam euismod fringilla.</p>
-    </section>
-    <section id="services">
-      <h2>Services</h2>
-      <ul>
-        <li>Web Design</li>
-        <li>Graphic Design</li>
-        <li>SEO Optimization</li>
-        <li>Content Writing</li>
-      </ul>
-    </section>
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <div class="portfolio-item">
-        <img src="project1.jpg" alt="Project 1">
-        <h3>Project 1</h3>
+<div class="container">
+    <header class="header">
+      <h1>Steen papier schaar</h1>
+      <button id="restart" class="restart-btn">Restart Game</button>
+      <div id="score" class="score">
+        <p>Speler: 0</p>
+        <p>Computer: 0</p>
       </div>
-      <div class="portfolio-item">
-        <img src="project2.jpg" alt="Project 2">
-        <h3>Project 2</h3>
-      </div>
-      <div class="portfolio-item">
-        <img src="project3.jpg" alt="Project 3">
-        <h3>Project 3</h3>
-      </div>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Phone: 555-555-5555</p>
-      <p>Email: info@myhomepage.com
+    </header>
+    <h2>Maak uw keuze</h2>
+    <div class="choices">
+      <i id="rock" class="choice fas fa-hand-rock fa-10x"></i>
+      <i id="paper" class="choice fas fa-hand-paper fa-10x"></i>
+      <i id="scissors" class="choice fas fa-hand-scissors fa-10x"></i>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal">
+    <div id="result" class="modal-content"></div>
+  </div>
+</body>
+<script src="gamemo.js"></script>
+</html>

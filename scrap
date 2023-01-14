@@ -1,0 +1,287 @@
+<html>
+  <head>
+    <title>Flappy Bird</title>
+    <style>
+      /* Add some style to your game */
+
+canvas {
+  width: 1200px;
+  height: 430px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: lightgreen;
+}
+
+#score {
+  font-size: 24px;
+}
+
+#highscore {
+  font-size: 24px;
+}
+
+#restartButton {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+#restartButton:hover {
+  background-color: lightgray;
+}
+
+    </style>
+  </head>
+  <body>
+    <canvas id="gameCanvas" width="600" height="800"></canvas>
+    <br>
+    <div id="score">Score: 0</div>
+    <div id="highscore">High Score: 0</div>
+    <br>
+    <button id="restartButton" onclick="restartGame()">Restart</button>
+
+    <script src="gamemo.js"></script>
+  </body>
+</html>
+// game.js
+
+let canvas = document.getElementById("gameCanvas");
+let ctx = canvas.getContext("2d");
+
+let score = 0;
+let highScore = 0;
+
+let restartButton = document.getElementById("restartButton");
+restartButton.addEventListener("click", restartGame);
+
+
+// Create the flappy bird object
+// Load the flappy bird image
+let birdImage = new Image();
+birdImage.src = "img/bird.png";
+
+function render() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the flappy bird
+  ctx.drawImage(birdImage, bird.x, bird.y, bird.width, bird.height);
+
+  // Draw the pipes
+  for (let i = 0; i < pipes.length; i++) {
+    ctx.fillRect(pipes[i].x, pipes[i].y, pipes[i].width, pipes[i].height);
+  }
+}
+
+let bird = {
+  x: 100,
+  y: 250,
+  width: 40,
+  height: 30,
+  gravity: 1.5,
+  velocity: 0,
+  jumpForce: 15,
+};
+
+// Create an array to store the pipes
+let pipes = [];
+
+// Create a pipe object
+let pipe = {
+  x: canvas.width,
+  y: 0,
+  width: 50,
+  height: 200,
+  speed: 3,
+};
+
+// Push a new pipe into the array
+pipes.push(pipe);
+
+document.addEventListener("keydown", (event) => {
+  // Flap the bird's wings when the space bar is pressed
+  if (event.code === "Space") {
+    bird.velocity = -bird.jumpForce;
+  }
+});
+
+function update() {
+  // Update the game state
+  score++;
+
+  // Update the bird's velocity and position
+  bird.velocity += bird.gravity;
+  bird.y += bird.velocity;
+
+  // Update the pipes
+  for (let i = 0; i < pipes.length; i++) {
+    pipes[i].x -= pipes[i].speed;
+
+    // Remove pipes that have gone off the screen
+    if (pipes[i].x + pipes[i].width < 0) {
+      pipes.splice(i, 1);
+      i--;
+    }
+  }
+
+  // Check for collision with the pipes
+  for (let i = 0; i < pipes.length; i++) {
+    if (
+      (bird.x + bird.width > pipes[i].x && bird.x < pipes[i].x + pipes[i].width) &&
+      (bird.y + bird.height > pipes[i].y && bird.y < pipes[i].y + pipes[i].height)
+    ) {
+      // Game over!
+      gameOver();
+      return;
+    }
+  }
+
+  // Check for collision with the ground
+  if (bird.y + bird.height > canvas.height) {
+    // Game over!
+    gameOver();
+    return;
+  }
+
+  // Check if a new pipe should be added
+  if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
+    pipes.push(createPipe());
+  }
+}
+
+function render() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw the flappy bird
+  ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
+
+  // Draw the pipes
+  for (let i = 0; i < pipes.length; i++) {
+    ctx.fillRect(pipes[i].x, pipes[i].y, pipes[i].width, pipes[i].height);
+  }
+}
+
+function gameLoop() {
+  update();
+  render();
+  requestAnimationFrame(gameLoop);
+}
+
+function gameOver() {
+  // Update the high score if necessary
+  if (score > highScore) {
+    highScore = score;
+    updateHighScore();
+  }
+
+  // Reset the score
+  score = 0;
+  updateScore();
+
+  // Reset the pipes array
+  pipes = [];
+
+  // Reset the gameOver flag
+ let gameOver = false;
+}
+
+
+function createPipe() {
+  // Create a new pipe object
+  let pipe = {
+    x: canvas.width,
+    y: Math.random() * canvas.height - canvas.height / 2,
+    width: 50,
+    height: 200,
+    speed: 3,
+  };
+  return pipe;
+}
+
+
+gameLoop();
+function restartGame() {
+  // Reset the game state
+  score = 0;
+  updateScore();
+  bird.x = 100;
+  bird.y = 250;
+  bird.velocity = 0;
+  pipes = [];
+  gameOver = false;
+
+  // Start the game loop
+  gameLoop();
+
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: lightblue;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  flex: 1;
+}
+
+header nav ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+header nav ul li a:hover {
+  background-color: lightgray;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+.portfolio-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.portfolio-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.portfolio-item h3 {
+  margin: 0;
+}

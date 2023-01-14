@@ -1,63 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rock, Paper, Scissors</title>
-  <style>
-    /* Add some style to the page */
-    body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-h1 {
-  color: purple;
-}
-
-button {
-  font-size: 1.5em;
-  padding: 0.5em;
-  margin: 0.5em;
-  border-radius: 0.5em;
-  border: none;
-  background-color: lightgray;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: darkgray;
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.ico"/>
+    <title>Flappy Bird Game</title>
+    <link rel="stylesheet" href="gameali.css">
+    <script src="gameali.js" defer></script>
 </head>
 <body>
-  <h1>Rock, Paper, Scissors</h1>
-  <p>Make your choice:</p>
-  <button onclick="play('rock')">Rock</button>
-  <button onclick="play('paper')">Paper</button>
-  <button onclick="play('scissors')">Scissors</button>
-  <p id="result"></p>
-  <script>
-    function play(playerChoice) {
-      // Generate the computer's choice
-      const choices = ['rock', 'paper', 'scissors'];
-      const computerChoice = choices[Math.floor(Math.random() * choices.length)];
-
-      // Determine the winner
-      let result;
-      if (playerChoice === computerChoice) {
-        result = 'It\'s a tie!';
-      } else if (
-        (playerChoice === 'rock' && computerChoice === 'scissors') ||
-        (playerChoice === 'paper' && computerChoice === 'rock') ||
-        (playerChoice === 'scissors' && computerChoice === 'paper')
-      ) {
-        result = 'You win!';
-      } else {
-        result = 'You lose.';
-      }
-
-      // Display the result
-      document.getElementById('result').innerHTML = `You chose ${playerChoice}. The computer chose ${computerChoice}. ${result}`;
-    }
-  </script>
+    <div class="background"></div>
+    <img src="images/Bird.png" alt="bird-img" class="bird" id="bird-1">
+    <div class="message">
+        Enter To Start Game <p><span style="color: red;">&uarr;</span> ArrowUp to Control</p>
+    </div>
+    <div class="score">
+        <span class="score_title"></span>
+        <span class="score_val"></span>
+    </div>
 </body>
 </html>

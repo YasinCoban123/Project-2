@@ -1,73 +1,115 @@
-// Initialize game variables
-let score = 0;
-let lives = 3;
-let level = 1;
-let gameOver = false;
-
-// Set up the game canvas
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-
-// Set up the game objects
-const player = {
-  x: canvas.width / 2,
-  y: canvas.height / 2,
-  width: 20,
-  height: 20,
-  speed: 5,
-  color: "red"
+const choices = document.querySelectorAll('.choice');
+const score = document.getElementById('score');
+const result = document.getElementById('result');
+const restart = document.getElementById('restart');
+const modal = document.querySelector('.modal');
+const scoreboard = {
+  player: 0,
+  computer: 0
 };
 
-const enemies = [];
-
-// Set up the game loop
-function gameLoop() {
-  // Update game state
-  updateGame();
-
-  // Draw game objects
-  drawGame();
-
-  // Schedule next game loop iteration
-  requestAnimationFrame(gameLoop);
+// Play game
+function play(e) {
+  restart.style.display = 'inline-block';
+  const playerChoice = e.target.id;
+  const computerChoice = getComputerChoice();
+  const winner = getWinner(playerChoice, computerChoice);
+  showWinner(winner, computerChoice);
 }
 
-// Update game state
-function updateGame() {
-  // Check for game over
-  if (lives <= 0 || level > 10) {
-    gameOver = true;
-    document.getElementById("gameOver").style.display = "block";
+// Get computers choice
+function getComputerChoice() {
+  const rand = Math.random();
+  if (rand < 0.34) {
+    return 'rock';
+  } else if (rand <= 0.67) {
+    return 'paper';
+  } else {
+    return 'scissors';
   }
-
-  // Move player
-  movePlayer();
-
-  // Update enemies
-  updateEnemies();
-
-  // Check for collisions
-  checkCollisions();
 }
 
-// Draw game objects
-function drawGame() {
-  // Clear the canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Draw the player
-  ctx.fillStyle = player.color;
-  ctx.fillRect(player.x, player.y, player.width, player.height);
-
-  // Draw the enemies
-  ctx.fillStyle = "black";
-  enemies.forEach(function(enemy) {
-    ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
-  });
-
-  // Draw the score
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "black";
-  ctx.fillText("Score: " + score, 8, 20);
+// Get game winner
+function getWinner(p, c) {
+  if (p === c) {
+    return 'draw';
+  } else if (p === 'rock') {
+    if (c === 'paper') {
+      return 'computer';
+    } else {
+      return 'player';
+    }
+  } else if (p === 'paper') {
+    if (c === 'scissors') {
+      return 'computer';
+    } else {
+      return 'player';
+    }
+  } else if (p === 'scissors') {
+    if (c === 'rock') {
+      return 'computer';
+    } else {
+      return 'player';
+    }
+  }
 }
-  // Draw the
+
+function showWinner(winner, computerChoice) {
+  if (winner === 'player') {
+    // Inc player score
+    scoreboard.player++;
+    // Show modal result
+    result.innerHTML = `
+      <h1 class="text-win">u heeft gewonnen</h1>
+      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <p>Computer koos voor <strong>${computerChoice.charAt(0).toUpperCase() +
+        computerChoice.slice(1)}</strong></p>
+    `;
+  } else if (winner === 'computer') {
+    // Inc computer score
+    scoreboard.computer++;
+    // Show modal result
+    result.innerHTML = `
+      <h1 class="text-lose">u heeft verloren</h1>
+      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <p>Computer koos voor <strong>${computerChoice.charAt(0).toUpperCase() +
+        computerChoice.slice(1)}</strong></p>
+    `;
+  } else {
+    result.innerHTML = `
+      <h1>Het is gelijkspel</h1>
+      <i class="fas fa-hand-${computerChoice} fa-10x"></i>
+      <p>Computer koos voor <strong>${computerChoice.charAt(0).toUpperCase() +
+        computerChoice.slice(1)}</strong></p>
+    `;
+  }
+  // Show score
+  score.innerHTML = `
+    <p>Speler: ${scoreboard.player}</p>
+    <p>Computer: ${scoreboard.computer}</p>
+    `;
+
+  modal.style.display = 'block';
+}
+
+// Restart game
+function restartGame() {
+  scoreboard.player = 0;
+  scoreboard.computer = 0;
+  score.innerHTML = `
+    <p>Player: 0</p>
+    <p>Computer: 0</p>
+  `;
+}
+
+// Clear modal
+function clearModal(e) {
+  if (e.target == modal) {
+    modal.style.display = 'none';
+  }
+}
+
+// Event listeners
+choices.forEach(choice => choice.addEventListener('click', play));
+window.addEventListener('click', clearModal);
+restart.addEventListener('click', restartGame);
