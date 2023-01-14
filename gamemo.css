@@ -45,6 +45,7 @@ body {
 .restart-btn:hover {
   background-color: black;
   color: #fff;
+  transition: background-color s ease;
 }
 
 .header {
