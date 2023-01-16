@@ -7,6 +7,11 @@ const scoreboard = {
   player: 0,
   computer: 0
 };
+document.getElementById("restart").addEventListener("click", function(){
+  document.getElementById("sound").play();
+});
+
+
 
 // Play game
 function play(e) {

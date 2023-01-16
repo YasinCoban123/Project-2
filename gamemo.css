@@ -32,20 +32,23 @@ body {
 
 .restart-btn {
   display: none;
-  background: var(--light-color);
-  color: #333;
+  background: var(--primary-color);
+  color: rgb(255, 255, 255);
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   cursor: pointer;
   outline: none;
   border: none;
   margin-bottom: 1rem;
+  border-radius: 20px;
+  background: linear-gradient(to right, #157a11, #ff0000);
+
 }
 
 .restart-btn:hover {
-  background-color: black;
-  color: #fff;
-  transition: background-color s ease;
+  
+  transition: background-color 0,5s ease;
+  background: linear-gradient(to right, #11660e, #d50000);
 }
 
 .header {
