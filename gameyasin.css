@@ -1,0 +1,21 @@
+#quiz {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#quiz h1 {
+  text-align: center;
+}
+
+#quiz-form .question {
+  margin-bottom: 20px;
+}
+
+#quiz-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#quiz-form input[type="radio"] {
+  margin-right: 10px;
+}

@@ -1,30 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Quiz</title>
-    <link rel="stylesheet" href="gameyasin.css">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="gameyasin.css">
   </head>
   <body>
-    <h1>Quiz</h1>
-    <form id="quiz-form">
-      <div id="question1">
-        <h2>Question 1</h2>
-        <img src="image1.jpg" alt="Question 1 image">
-        <input type="radio" name="question1" value="answer1">Answer 1
-        <input type="radio" name="question1" value="answer2">Answer 2
-        <input type="radio" name="question1" value="answer3">Answer 3
-        <input type="radio" name="question1" value="answer4">Answer 4
-      </div>
-      <div id="question2">
-        <h2>Question 2</h2>
-        <img src="image2.jpg" alt="Question 2 image">
-        <input type="radio" name="question2" value="answer1">Answer 1
-        <input type="radio" name="question2" value="answer2">Answer 2
-        <input type="radio" name="question2" value="answer3">Answer 3
-        <input type="radio" name="question2" value="answer4">Answer 4
-      </div>
-      <input type="button" value="Submit" onclick="checkAnswers()">
-    </form>
-    <script src="gamemo.js"></script>
-    </body>
-    </html>
+    <div id="quiz">
+      <h1>Quiz</h1>
+      <form id="quiz-form">
+        <div class="question" data-name="question1"></div>
+          <h2>Question 1</h2>
+          <label>
+            <input type="radio" name="question1" value="option1">Option 1
+          </label>
+          <label>
+            <input type="radio" name="question1" value="option2">Option 2
+          </label>
+          <label>
+            <input type="radio" name="question1" value="option3">Option 3
+          </label>
+          <label>
+            <input type="radio" name="question1" value="option4">Option 4
+          </label>
+        </div>
+        <div class="question" data-name="question2"></div>
+          <h2>Question 2</h2>
+          <label>
+            <input type="radio" name="question2" value="option1">Option 1
+          </label>
+          <label>
+            <input type="radio" name="question2" value="option2">Option 2
+          </label>
+          <label>
+            <input type="radio" name="question2" value="option3">Option 3
+          </label>
+          <label>
+            <input type="radio" name="question2" value="option4">Option 4
+          </label>
+        </div>
+        <div class="question" data-name="question3"></div>
+          <h2>Question 3</h2>
+          <label>
+            <input type="radio" name="question3" value="option1">Option 1
+          </label>
+          <label>
+            <input type="radio" name="question3" value="option2">Option 2
+          </label>
+          <label>
+            <input type="radio" name="question3" value="option3">Option 3
+          </label>
+          <label>
+            <input type="radio" name="question3" value="option4">Option 4
+          </label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    
+  <script src="gameyasin.js"></script>
+  </body>
+  </html>

@@ -1,14 +1,17 @@
 let move_speed = 3, grativy = 0.5;
 let bird = document.querySelector('.bird');
 let img = document.getElementById('bird-1');
-let sound_point = new Audio('sounds effect/point.mp3');
-let sound_die = new Audio('sounds effect/die.mp3');
+let sound_point = new Audio('sound/winsound.mp3');
+let sound_die = new Audio('sound/tiesound.mp3');
 
 // getting bird element properties
 let bird_props = bird.getBoundingClientRect();
 
 // This method returns DOMReact -> top, right, bottom, left, x, y, width and height
 let background = document.querySelector('.background').getBoundingClientRect();
+var audio = document.getElementById("backgroundtrack");
+audio.loop = true;
+audio.play();
 
 let score_val = document.querySelector('.score_val');
 let message = document.querySelector('.message');
@@ -25,7 +28,7 @@ document.addEventListener('keydown', (e) => {
             e.remove();
         });
         img.style.display = 'block';
-        bird.style.top = '40vh';
+        bird.style.top = '30vh';
         game_state = 'Play';
         message.innerHTML = '';
         score_title.innerHTML = 'Score : ';
@@ -73,7 +76,7 @@ function play(){
         bird_dy = bird_dy + grativy;
         document.addEventListener('keydown', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                img.src = 'images/Bird-2.png';
+                img.src = 'images/bird-img.png';
                 bird_dy = -7.6;
             }
         });
@@ -99,7 +102,7 @@ function play(){
 
     let pipe_seperation = 0;
 
-    let pipe_gap = 35;
+    let pipe_gap = 45;
 
     function create_pipe(){
         if(game_state != 'Play') return;

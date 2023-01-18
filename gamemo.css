@@ -68,11 +68,15 @@ body {
 }
 
 .score p:first-child {
-  background: var(--primary-color);
+  background: linear-gradient(to right, #157a11, #ff0000);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .score p:last-child {
-  background: var(--dark-color);
+  background: linear-gradient(to right, #ff0000, #157a11);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .choices {

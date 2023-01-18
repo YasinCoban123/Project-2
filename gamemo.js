@@ -10,6 +10,9 @@ const scoreboard = {
 document.getElementById("restart").addEventListener("click", function(){
   document.getElementById("sound").play();
 });
+var audio = document.getElementById("backgroundtrack1");
+audio.loop = true;
+audio.play();
 
 
 
@@ -99,11 +102,13 @@ function showWinner(winner, computerChoice) {
 
 // Restart game
 function restartGame() {
+  audio.play();
   scoreboard.player = 0;
   scoreboard.computer = 0;
   score.innerHTML = `
     <p>Player: 0</p>
     <p>Computer: 0</p>
+    
   `;
 }
 
