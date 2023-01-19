@@ -8,7 +8,7 @@ audio.loop = true;
 audio.play();
 
 let sound_wrong = new Audio('sound/losesound.mp3.mp3');
-let sound_right = new Audio('sound/tiesound.mp3');
+let sound_right = new Audio('sound/buttonsound.mp3');
 
 Quiz.prototype.getQuestionIndex = function() {
   return this.questions[this.questionIndex];
@@ -76,6 +76,7 @@ function showProgress() {
   `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
   audio.play();
   sound_wrong.play();
+  sound_right.play();
 };
 
 function showScores() {
