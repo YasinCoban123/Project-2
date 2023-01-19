@@ -38,17 +38,17 @@ Question.prototype.isCorrectAnswer = function(choice) {
 }
 
 
-// Displaying the question
+// de question laten zien
 function displayQuestion() {
   if(quiz.isEnded()) {
       showScores();
   }
   else {
-      // show question
+      // laat de question zien
       let questionElement = document.getElementById("question");
       questionElement.innerHTML = quiz.getQuestionIndex().text;
 
-      // show options
+      // laat de opties zien
       let choices = quiz.getQuestionIndex().choices;
       for(let i = 0; i < choices.length; i++) {
           let choiceElement = document.getElementById("choice" + i);
@@ -93,7 +93,7 @@ function showScores() {
   sound_wrong.play();
 };
 
-// create questions here
+// hier maak je de vragen
 let questions = [
   new Question(
       "Wie was de leider van Duitsland in de Tweede Wereld Oorlog.", 
@@ -178,20 +178,13 @@ let questions = [
       ) 
 ];
 
-// Loop through the array and get the answers
-// questions.forEach((answer) => {
-//     console.log(answer.choice);
-//     let quizAnswers = document.getElementById("quiz-answers");
-//     // quizAnswers.innerHTML = questions.text;
-// })
 
-
-// create quiz
+// de quiz maken
 let quiz = new Quiz(questions);
-// display quiz
+// zie de quiz/vragen
 displayQuestion();
 
-// Add A CountDown for the Quiz
+// een timer voor de quiz
 let time = 30;
 let quizTimeInMinutes = time * 60 * 60;
 let quizTime = quizTimeInMinutes / 60;
