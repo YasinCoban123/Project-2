@@ -13,9 +13,6 @@ document.getElementById("restart").addEventListener("click", function(){
 var audio = document.getElementById("backgroundtrack1");
 audio.loop = true;
 audio.play();
-
-
-
 // Play game
 function play(e) {
   restart.style.display = 'inline-block';
@@ -106,7 +103,7 @@ function restartGame() {
   scoreboard.player = 0;
   scoreboard.computer = 0;
   score.innerHTML = `
-    <p>Player: 0</p>
+    <p>Speler: 0</p>
     <p>Computer: 0</p>
     
   `;

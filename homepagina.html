@@ -1,49 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Homepage</title>
-  <style>
-    /* Add some style to the page */
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="homepagina.css">
+    <title>project website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200;1,600;1,900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Homepage</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm a web developer and I love creating websites and applications. I have a strong background in HTML, CSS, and JavaScript, and I'm always learning new technologies and techniques to improve my skills. In my free time, I enjoy playing video games and spending time with my family.</p>
+    <!--1-->
+    <section class="header">
+        <nav>
+            <a href="homepagina.html"> <img src="images/logo3.png"></a>
+            <div class="dropdown">
+            <button class="dropbtn">menu</button>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="homepagina.html">Home</a></li>
+                    <li><a href="info.html">Info over games</a></li>
+                    <li><a href="gameali.html">Flappy Bird</a></li>
+                    <li><a href="gamemo.html">Steen,papier,schaar</a></li>
+                    <li><a href="gameyasin.html">De Quiz</a></li>
+                    
+                </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="text-box">
+            <h1>Project 2 </h1>
+            <p> Welkom naar onze Project 2 website. Gemaakt door  Ali Mo en Yasin </p>
+            <a href="oudersspreekavond.html" class="hero-btn">Visit us to know more</a>
+        </div>
     </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Here are a few of the projects I've worked on recently:</p>
-      <ul>
-        <li><a href="#">A social media platform</a></li>
-        <li><a href="#">A web-based game</a></li>
-        <li><a href="#">A website for a small business</a></li>
-      </ul>
+    <!--2-->
+    <section class="home">
+        <h1>Groep</h1>
+        <p> Deze website is Gemaakt door: </p>
+        <div class="row">
+            <div class="col">
+              <h3>Ali Abo Rashed</h3>
+              <P>Mijn naam is Ali Abo Rashed. Ik ben 21 jaar oud en ik ben palestijns. Ik studeer Sod bij TCR N4 </P>  
+            </div>
+            <div class="col">
+                <h3>Taha Yasin Coban</h3>
+                <P> Ik ben Taha Yasin Coban. Ik ben 18 jaar oud en ik ben van turks afkomst, maar ik ben geboren in Nederland. Ik studeer TCR N4 </P>  
+            </div>
+            <div class="col">
+                <h3>Mo Itzari</h3>
+                <P>Ik ben Mo Itzari. ik ben 16 jaar oud ik was geboren in Nederland en ik studeer TCR N4</P>  
+            </div>
+            
+        </div>
     </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>If you'd like to get in touch with me, you can reach me through any of the following channels:</p>
-      <ul>
-        <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
-        <li>Twitter: <a href="#">@username</a></li>
-        <li>LinkedIn: <a href="#">Profile</a></li>
-      </ul>
+
+    <!---3-->
+    <section class="home">
+              <h1>Groep AMY</h1>
+               <p> De portfolios van de studenten: </p>
+            <div class="row">
+                <div class="col2">
+                        <img src="images/Ali.jpg">
+                    <div class="layer">
+                        <a href="./paginaali.html"><h3>Ali Abo Rashed</h3></a>
+                    </div>
+                </div>
+                <div class="col2">
+                   <img src="images/Yasin foto 1.jpg">
+                    <div class="layer">
+                       <a href="./paginayasin.html"><h3>Taha Yasin Coban</h3></a>
+                    </div>
+                </div>
+                <div class="col1">
+                    <img src="images/mo1.jpg">
+                    <div class="layer">
+                    <a href="./paginamo.html"><h3>Mo Itzari</h3></a>
+                    </div>
+                </div>
+            </div>      
     </section>
-  </main>
-  <footer>
-    <p>Copyright 2021</p>
-  </footer>
+    
 </body>
 </html>
-
