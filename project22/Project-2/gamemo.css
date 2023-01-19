@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.header{
+	min-height: 10vh;
+	width: 100%;
+	background-image: url();
+	background-position: center;
+	background-size: cover;
+	position: sticky;
+
+
+}   
+nav{
+	display: flex;
+	padding: 2% 1%;
+	justify-content: space-between;
+	align-items: center;
+	top: 0px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}   
+.nav a{
+  font-family: 'Roboto', sans-serif;
+}
+nav img{
+	width: 200px;
+} 
+.nav-links{
+flex: 1;
+text-align: right;
+}                                   
+.nav-links ul li{
+	list-style: none;
+	display: inline-block;
+	padding: 8px 12px;
+	position: relative;
+}
+.nav-links ul li a{
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font-size: 15px;
+
+}
+.nav-links ul li::after{
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #000000;
+	display: block;
+	margin: auto;
+	transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+	width: 100%;
+}
+
+
+:root {
+  --primary-color: #157a11;
+  --dark-color: #ff0000;
+  --light-color: #f4f4f4;
+  --lose-color: #dc3545;
+  --win-color: #28a745;
+  --modal-duration: 1s;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(41, 41, 41);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background: #414141;
+  color: #fff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.restart-btn {
+  display: none;
+  background: var(--primary-color);
+  color: rgb(255, 255, 255);
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  background: linear-gradient(to right, #157a11, #ff0000);
+
+}
+
+.restart-btn:hover {
+  
+  transition: background-color 0,5s ease;
+  background: linear-gradient(to right, #11660e, #d50000);
+}
+
+.header {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.header h1 {
+  margin-bottom: 1rem;
+}
+
+.score {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.score p:first-child {
+  background: linear-gradient(to right, #157a11, #ff0000);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.score p:last-child {
+  background: linear-gradient(to right, #ff0000, #157a11);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.choice {
+  cursor: pointer;
+  color: white;
+}
+
+.choice:hover {
+  color: var(--primary-color);
+}
+
+.text-win {
+  color: var(--win-color);
+}
+
+.text-lose {
+  color: var(--lose-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: #fff;
+  text-align: center;
+  margin: 10% auto;
+  width: 350px;
+  border-radius: 10px;
+  padding: 3rem;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+}
+#v{
+  color: blue;
+  margin-bottom: 1px;
+}
+.modal-content h1 {
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .choice {
+    font-size: 110px;
+  }
+}
+
+@media (max-width: 500px) {
+  .choice {
+    font-size: 80px;
+  }
+}

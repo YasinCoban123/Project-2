@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://kit.fontawesome.com/1935d064dd.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200;1,600;1,900&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="gameyasin.css">
+</head>
+
+<body>
+    <!--1-->
+    <section class="header">
+        <nav>
+            <a href="homepagina.html"> <img src="images/logo3.png"></a>
+            <div class="dropdown">
+            
+            <div class="nav-links">
+                <ul>
+                    <li><a href="homepagina.html">Home</a></li>
+                    <li><a href="infoali.html">Info over Flappy Bird</a></li>
+                     <li><a href="infoyasin.html">Info over De Quiz</a></li>
+                    <li><a href="infosteen.html">Info over Steen,papier,schaar</a></li>
+                    <li><a href="gameali.html">Flappy Bird</a></li>   
+                    <li><a href="gamemo.html">Steen,papier,schaar</a></li>
+                    <li><a href="gameyasin.html">De Quiz</a></li>
+                    
+                </ul>
+                </div>
+            </div>
+        </nav>
+  <audio id="backgroundtrack2" src="sound/backgroundsoundquiz.mp3"></audio>
+  <audio id="buttonclick" src="sound/buttonsound.mp3"></audio>
+    <div class="container">
+        <div class="quiz-box">
+            <div id="quiz">
+                <h1>JavaScript Quiz</h1>
+                <div class="quiz-header">
+                    <p id="progress">Question x van y</p>
+                    <p id="count-down"></p>
+                </div>
+                <p id="question"></p>
+
+                <div class="buttons">
+                    <button class="btn" id="btn0">A. <span id="choice0"></span></button>
+                    <button class="btn" id="btn1">B. <span id="choice1"></span></button>
+                    <button class="btn" id="btn2">C. <span id="choice2"></span></button>
+                    <button class="btn" id="btn3">D. <span id="choice3"></span></button>
+                </div>
+
+                <hr>
+                <footer>
+                
+
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="gameyasin.js"></script>
+</body>
+
+</html>

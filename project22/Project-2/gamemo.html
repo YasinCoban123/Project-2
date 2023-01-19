@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gamemo.css">
+    <script src="https://kit.fontawesome.com/3da1a747b2.js"></script>
+    
+    <title>Steen Papier Schaar</title>
+</head>
+<body>
+  <section class="header">
+    <nav>
+        <a href="homepagina.html"> <img src="images/logo3.png"></a>
+        <div class="dropdown">
+        
+        <div class="nav-links">
+            <ul>
+              <li><a href="homepagina.html">Home</a></li>
+                    <li><a href="infoali.html">Info over Flappy Bird</a></li>
+                     <li><a href="infoyasin.html">Info over De Quiz</a></li>
+                    <li><a href="infosteen.html">Info over Steen,papier,schaar</a></li>
+                    <li><a href="gameali.html">Flappy Bird</a></li>   
+                    <li><a href="gamemo.html">Steen,papier,schaar</a></li>
+                    <li><a href="gameyasin.html">De Quiz</a></li>
+                
+            </ul>
+            </div>
+        </div>
+    </nav>
+  <audio id="backgroundtrack1" src="sound/backgroundsoundsps.mp3"></audio>
+<div class="container">
+    <header class="header">
+      <h1>Steen papier schaar</h1>
+      <audio id="sound" src="sound/restartsound.mp3"></audio>
+      <button id="restart" class="restart-btn">Restart Game</button>
+      <div id="score" class="score">
+        <p>Speler: 0</p>
+        <p>Computer: 0</p>
+      </div>
+     
+
+    </header>
+    <h2>Maak uw keuze</h2>
+    <audio id="soundwin" src="sound/restartsound.mp3"></audio>
+    <audio id="soundlose" src="sound/restartsound.mp3"></audio>
+    <audio id="soundtie" src="sound/restartsound.mp3"></audio>
+    <div class="choices">
+      <i id="rock" class="choice fas fa-hand-rock fa-10x"></i>
+      <i id="paper" class="choice fas fa-hand-paper fa-10x"></i>
+      <i id="scissors" class="choice fas fa-hand-scissors fa-10x"></i>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal">
+    <div id="result" class="modal-content"></div>
+  </div>
+</body>
+<script src="gamemo.js"></script>
+</html>
