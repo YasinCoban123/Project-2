@@ -7,7 +7,7 @@ var audio = document.getElementById("backgroundtrack2");
 audio.loop = true;
 audio.play();
 
-let sound_wrong = new Audio('sound/buttonsound.mp3');
+let sound_wrong = new Audio('sound/losesound.mp3.mp3');
 let sound_right = new Audio('sound/tiesound.mp3');
 
 Quiz.prototype.getQuestionIndex = function() {
@@ -75,6 +75,7 @@ function showProgress() {
   ProgressElement.innerHTML = 
   `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
   audio.play();
+  sound_wrong.play();
 };
 
 function showScores() {
@@ -88,6 +89,7 @@ function showScores() {
   `;
   let quizElement = document.getElementById("quiz");
   quizElement.innerHTML = quizEndHTML;
+  sound_wrong.play();
 };
 
 // create questions here
@@ -95,6 +97,7 @@ let questions = [
   new Question(
       "Wie was de leider van Duitsland in de Tweede Wereld Oorlog.", 
       ["Benito Mussolini", "Joseph Stalin","Geert Wilders", "Adolf Hitler"], "Adolf Hitler"
+      
   ),
   new Question(
       "Wat is de volledige naam van css?", 
@@ -184,7 +187,6 @@ let questions = [
 
 // create quiz
 let quiz = new Quiz(questions);
-
 // display quiz
 displayQuestion();
 
